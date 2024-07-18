@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://6kg5d1bexs0v"]
+
+[ext_resource type="Texture2D" uid="uid://d4i3r63gmrkfi" path="res://Background.png" id="1_vdbtw"]
+[ext_resource type="Theme" uid="uid://ctpwltkg30kxv" path="res://new_theme.tres" id="2_07tvl"]
+[ext_resource type="Script" path="res://back.gd" id="3_rngyh"]
+
+[node name="Node" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vdbtw")
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+offset_left = 440.0
+offset_top = 320.0
+offset_right = 688.0
+offset_bottom = 383.0
+theme = ExtResource("2_07tvl")
+text = "On/Off"
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 264.0
+offset_right = 610.0
+offset_bottom = 299.0
+theme = ExtResource("2_07tvl")
+theme_override_colors/font_color = Color(0.227451, 0.266667, 0.4, 1)
+theme_override_font_sizes/font_size = 35
+text = "Audio"
+
+[node name="back" type="Button" parent="."]
+texture_filter = 1
+offset_left = 136.0
+offset_top = 144.0
+offset_right = 200.0
+offset_bottom = 192.0
+theme = ExtResource("2_07tvl")
+text = "<"
+script = ExtResource("3_rngyh")
+
+[connection signal="button_down" from="Button" to="back" method="_on_button_button_down"]
+[connection signal="pressed" from="back" to="back" method="_on_pressed"]

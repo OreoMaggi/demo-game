@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://055xwjfqkriw"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_rycll"]
+[ext_resource type="Texture2D" uid="uid://d4i3r63gmrkfi" path="res://Background.png" id="2_yruq7"]
+[ext_resource type="Script" path="res://Button2.gd" id="3_x3n3q"]
+[ext_resource type="FontFile" uid="uid://oxh1n8o0wldp" path="res://Demo_Fonts/minimalpixel bitmap font V2/MinimalPixel v2.ttf" id="4_7ymjn"]
+[ext_resource type="Theme" uid="uid://ctpwltkg30kxv" path="res://new_theme.tres" id="4_aiucp"]
+[ext_resource type="Texture2D" uid="uid://62y6frrkqyyo" path="res://Demo_Fonts/title.png" id="5_nhm3n"]
+
+[sub_resource type="AudioStream" id="AudioStream_3shu0"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_rycll")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yruq7")
+metadata/_edit_lock_ = true
+
+[node name="Button2" type="Button" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 426.0
+offset_top = 448.0
+offset_right = 674.0
+offset_bottom = 511.0
+theme = ExtResource("4_aiucp")
+theme_override_fonts/font = ExtResource("4_7ymjn")
+text = "Quit"
+icon_alignment = 1
+script = ExtResource("3_x3n3q")
+
+[node name="Button" type="Button" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 426.0
+offset_top = 272.0
+offset_right = 674.0
+offset_bottom = 335.0
+theme = ExtResource("4_aiucp")
+text = "Play"
+icon_alignment = 1
+
+[node name="Button3" type="Button" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 426.0
+offset_top = 360.0
+offset_right = 674.0
+offset_bottom = 423.0
+theme = ExtResource("4_aiucp")
+text = "Settings"
+icon_alignment = 1
+
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(560, 160)
+scale = Vector2(1.1738, 1.2601)
+texture = ExtResource("5_nhm3n")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStream_3shu0")
+
+[connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureRect/Button3" to="." method="_on_button_3_pressed"]
